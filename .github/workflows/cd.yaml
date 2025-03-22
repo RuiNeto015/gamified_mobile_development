@@ -1,0 +1,73 @@
+name: deployment
+run-name: deployment
+
+on:
+  push:
+    branches:
+      - main
+    paths:
+      - 'frontend/**'
+      - 'backend/**'
+  workflow_dispatch:  # This enables manual execution
+    branches:
+      - develop    
+
+jobs: 
+  checkout:
+    runs-on: self-hosted
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+  build-backend-docker-image:
+    runs-on: self-hosted
+    needs: [checkout]
+    steps:
+      - working-directory: backend
+        run: |
+          if [ -f src/main/resources/.env ]; then
+            rm src/main/resources/.env
+          fi
+
+          touch src/main/resources/.env
+          echo "MONGO_USER=${{ secrets.MONGO_USER }}" >> src/main/resources/.env
+          echo "MONGO_PASSWORD=${{ secrets.MONGO_PASSWORD }}" >> src/main/resources/.env
+          echo "MONGO_DATABASE=${{ secrets.MONGO_DATABASE }}" >> src/main/resources/.env
+          echo "MONGO_HOST"=mongodb >> src/main/resources/.env
+      - working-directory: backend
+        run: mvn install -DskipTests
+      - uses: docker/login-action@v3
+        with:
+          username: ${{ secrets.DOCKERHUB_USERNAME }}
+          password: ${{ secrets.DOCKERHUB_TOKEN }} 
+      - working-directory: backend  
+        run: |
+          NOW=$(date +'%Y-%m-%d_%Hh%Mm%Ss')
+          SHA_SHORT=$(git rev-parse --short HEAD)
+
+          docker build -t simaosantos1230212/ecoloop-backend:"${NOW}_${SHA_SHORT}" -t simaosantos1230212/ecoloop-backend:latest .
+          docker push simaosantos1230212/ecoloop-backend:"${NOW}_${SHA_SHORT}"
+
+  run-backend:
+    runs-on: self-hosted
+    needs: [build-backend-docker-image]
+    steps:
+      - working-directory: docker
+        run: docker compose -f docker-compose.yml up -d
+
+  build-apk:
+    runs-on: self-hosted
+    needs: [run-backend]
+    steps:
+      - working-directory: frontend/Ecoloop
+        run: |
+          npm install
+          react-native bundle --platform android --dev false --entry-file index.js --bundle-output android/app/src/main/assets/index.android.bundle --assets-dest android/app/src/main/res
+      - working-directory: frontend/Ecoloop/android
+        run: ./gradlew assembleDebug
+      - uses: actions/upload-artifact@v4
+        with:
+          name: ecoloop-android
+          path: "${{ github.workspace }}/frontend/Ecoloop/android/app/build/outputs/apk/debug/app-debug.apk"  
+        

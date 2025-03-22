@@ -1,0 +1,120 @@
+quizzes:
+  - question: Qual é a melhor forma de descartar óleo de cozinha usado?
+    answerOptions:
+      - label: 0
+        answerStr: Jogar no ralo da pia
+      - label: 1
+        answerStr: Levar a um ponto de recolha específico
+      - label: 2
+        answerStr: Misturar com lixo orgânico
+      - label: 3
+        answerStr: Enterrar no jardim
+    correctAnswer: 1
+
+  - question: Qual destes materiais não deve ser colocado no ecoponto do papel?
+    answerOptions:
+      - label: 0
+        answerStr: Caixas de cartão
+      - label: 1
+        answerStr: Papel com resíduos de gordura
+      - label: 2
+        answerStr: Envelopes usados
+      - label: 3
+        answerStr: Revistas velhas
+    correctAnswer: 1
+
+  - question: O que fazer com medicamentos fora de prazo?
+    answerOptions:
+      - label: 0
+        answerStr: Deitar no lixo comum
+      - label: 1
+        answerStr: Deitar na sanita
+      - label: 2
+        answerStr: Entregar na farmácia
+      - label: 3
+        answerStr: Guardar em casa
+    correctAnswer: 2
+
+  - question: Qual destes itens é considerado reciclável?
+    answerOptions:
+      - label: 0
+        answerStr: Pilhas
+      - label: 1
+        answerStr: Frascos de vidro limpos
+      - label: 2
+        answerStr: Roupa velha
+      - label: 3
+        answerStr: Lâmpadas fluorescentes
+    correctAnswer: 1
+
+  - question: Qual é o melhor destino para resíduos orgânicos em casa?
+    answerOptions:
+      - label: 0
+        answerStr: Compostagem
+      - label: 1
+        answerStr: Lixo indiferenciado
+      - label: 2
+        answerStr: Queimar no quintal
+      - label: 3
+        answerStr: Reciclar no ecoponto verde
+    correctAnswer: 0
+
+  - question: Qual é o problema principal de enviar plástico para aterros sanitários?
+    answerOptions:
+      - label: 0
+        answerStr: Ocupa muito espaço
+      - label: 1
+        answerStr: Não se decompõe facilmente
+      - label: 2
+        answerStr: Atrai pragas
+      - label: 3
+        answerStr: Contamina outros materiais
+    correctAnswer: 1
+
+  - question: Qual destes objetos pode ser reciclado em programas especializados?
+    answerOptions:
+      - label: 0
+        answerStr: Cabos eléctricos
+      - label: 1
+        answerStr: Jornais usados
+      - label: 2
+        answerStr: Garrafas PET
+      - label: 3
+        answerStr: Talheres descartáveis
+    correctAnswer: 0
+
+  - question: Qual é a principal razão para separar resíduos recicláveis em casa?
+    answerOptions:
+      - label: 0
+        answerStr: Facilitar o transporte
+      - label: 1
+        answerStr: Reduzir custos
+      - label: 2
+        answerStr: Evitar a contaminação de materiais
+      - label: 3
+        answerStr: Ganhar dinheiro com reciclagem
+    correctAnswer: 2
+
+  - question: Qual destes tipos de lixo deve ir para o ecoponto verde?
+    answerOptions:
+      - label: 0
+        answerStr: Vidro quebrado
+      - label: 1
+        answerStr: Papel de embrulho
+      - label: 2
+        answerStr: Restos de comida
+      - label: 3
+        answerStr: Pilhas usadas
+    correctAnswer: 0
+
+  - question: Qual é a melhor forma de lidar com roupas que já não usamos?
+    answerOptions:
+      - label: 0
+        answerStr: Deitar no lixo comum
+      - label: 1
+        answerStr: Doar ou levar a pontos de recolha
+      - label: 2
+        answerStr: Misturar com resíduos orgânicos
+      - label: 3
+        answerStr: Guardar indefinidamente
+    correctAnswer: 1

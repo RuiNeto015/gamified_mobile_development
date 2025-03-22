@@ -1,0 +1,43 @@
+server:
+  port: 9000
+
+spring:
+  application:
+    name: ecoloop
+  main:
+    banner-mode: "off"
+  config:
+    import: classpath:.env[.properties]
+  data:
+    mongodb:
+      host: ${MONGO_HOST}
+      port: 27017
+      database: ${MONGO_DATABASE}
+      username: ${MONGO_USER}
+      password: ${MONGO_PASSWORD}
+      authentication-database: admin
+
+game:
+  recyclingXp: 10
+  correctQuizCoefXp: 1.2
+  levelOne:
+    name: "Level One"
+    targetEcoXp: 150
+    rewardId: "145064511"
+    rewardIconUrl: "https://files.readyplayer.me/asset/iconUrl/145064511/1673877344-jacket-occassionwear-02-1699880485440.png"
+  levelTwo:
+    name: "Level Two"
+    targetEcoXp: 400
+    rewardId: "145064644"
+    rewardIconUrl: "https://files.readyplayer.me/asset/iconUrl/145064644/1673877306-pants-casual-02-1699880503919.png"
+  levelThree:
+    name: "Level Three"
+    targetEcoXp: 600
+    rewardId: "77045896"
+    rewardIconUrl: "https://files.readyplayer.me/asset/iconUrl/77045896/1637767650-glasses-67-1699880532330.png"
+
+jwt:
+  private:
+    key: classpath:rsa.private.key
+  public:
+    key: classpath:rsa.public.key

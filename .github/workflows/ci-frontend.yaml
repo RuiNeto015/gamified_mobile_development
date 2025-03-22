@@ -1,0 +1,50 @@
+name: ci-frontend
+run-name: ci-frontend   
+
+on:
+  push:
+    branches:
+      - develop
+    paths:
+      - 'frontend/**'
+  pull_request:
+    types:
+      - opened
+      - reopened
+    branches:
+      - develop
+    paths:
+      - 'frontend/**'
+  workflow_dispatch:  # This enables manual execution
+    branches:
+      - develop
+
+jobs:
+  checkout:
+    runs-on: self-hosted
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+  install-dependencies:
+    runs-on: self-hosted
+    needs: [checkout]
+    steps:
+      - working-directory: frontend/Ecoloop
+        run: npm install
+
+  dependency-check:
+    runs-on: self-hosted
+    needs: [install-dependencies]
+    steps:
+      - working-directory: frontend/Ecoloop
+        run: dependency-check --out . --scan . --nvdApiKey ${{ secrets.NVD_API_KEY }} --noupdate
+      - uses: actions/upload-artifact@v4
+        with:
+          name: owasp-dependency-checker-results-fe
+          path: "${{ github.workspace }}/frontend/Ecoloop/dependency-check-report.html"
+  
+
+
+ 

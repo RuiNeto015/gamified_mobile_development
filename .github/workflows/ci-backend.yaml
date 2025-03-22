@@ -1,0 +1,72 @@
+name: ci-backend
+run-name: ci-backend
+
+on:
+  push:
+    branches:
+      - develop
+    paths:
+      - 'backend/**'
+  pull_request:
+    types:
+      - opened
+      - reopened
+    branches:
+      - develop
+    paths:
+      - 'backend/**'
+  workflow_dispatch:  # This enables manual execution
+    branches:
+      - develop
+
+jobs:
+  checkout:
+    runs-on: self-hosted
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+  setup-dotenv:
+    runs-on: self-hosted
+    needs: [checkout]
+    steps:
+      - working-directory: backend
+        run: |
+          if [ -f src/main/resources/.env ]; then
+            rm src/main/resources/.env
+          fi
+
+          touch src/main/resources/.env
+          echo "MONGO_USER=${{ secrets.MONGO_USER }}" >> src/main/resources/.env
+          echo "MONGO_PASSWORD=${{ secrets.MONGO_PASSWORD }}" >> src/main/resources/.env
+          echo "MONGO_DATABASE=${{ secrets.MONGO_DATABASE }}" >> src/main/resources/.env
+
+  install-dependencies-and-build:
+    runs-on: self-hosted
+    needs: [setup-dotenv]
+    steps:
+      - working-directory: backend
+        run: mvn install -DskipTests
+  
+  testing:
+    runs-on: self-hosted
+    needs: [install-dependencies-and-build]
+    steps:
+      - working-directory: backend
+        run: mvn verify
+      - uses: actions/upload-artifact@v4
+        with:
+          name: jacoco-code-coverage-results
+          path: "${{ github.workspace }}/backend/target/site/jacoco"
+  
+  dependency-check:
+    runs-on: self-hosted
+    needs: [testing]
+    steps:
+      - working-directory: backend
+        run: dependency-check --out . --scan . --nvdApiKey ${{ secrets.NVD_API_KEY }} --noupdate
+      - uses: actions/upload-artifact@v4
+        with:
+          name: owasp-dependency-checker-results-be
+          path: "${{ github.workspace }}/backend/dependency-check-report.html"

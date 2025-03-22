@@ -1,0 +1,120 @@
+quizzes:
+  - question: Qual destes itens NÃO deve ser colocado no caixote do lixo?
+    answerOptions:
+      - label: 0
+        answerStr: Garrafa de plástico limpa
+      - label: 1
+        answerStr: Recipiente contaminado com restos de comida
+      - label: 2
+        answerStr: Folha de alumínio
+      - label: 3
+        answerStr: Frasco de vidro
+    correctAnswer: 1
+
+  - question: Qual é a melhor forma de descartar pilhas?
+    answerOptions:
+      - label: 0
+        answerStr: Lixo comum
+      - label: 1
+        answerStr: Deitar na sanita
+      - label: 2
+        answerStr: Levar a um centro de reciclagem de pilhas
+      - label: 3
+        answerStr: Queimá-las
+    correctAnswer: 2
+
+  - question: Qual destes materiais é geralmente considerado reciclável mas requer tratamento especializado?
+    answerOptions:
+      - label: 0
+        answerStr: Embalagens de cartão
+      - label: 1
+        answerStr: Espuma de poliestireno (esferovite)
+      - label: 2
+        answerStr: Latas de alumínio
+      - label: 3
+        answerStr: Nenhuma das anteriores
+    correctAnswer: 1
+
+  - question: Em relação ao vidro reciclável, qual a melhor prática para reciclar corretamente?
+    answerOptions:
+      - label: 0
+        answerStr: Lavar e remover rótulos
+      - label: 1
+        answerStr: Apenas lavar o vidro
+      - label: 2
+        answerStr: Partir o vidro em pedaços pequenos
+      - label: 3
+        answerStr: Nenhuma das anteriores
+    correctAnswer: 0
+
+  - question: Qual é o principal motivo para não reciclar plástico sujo?
+    answerOptions:
+      - label: 0
+        answerStr: Ocupa espaço desnecessário
+      - label: 1
+        answerStr: Pode contaminar todo o lote de reciclagem
+      - label: 2
+        answerStr: Leva mais tempo a processar
+      - label: 3
+        answerStr: Nenhuma das anteriores
+    correctAnswer: 1
+
+  - question: O que torna a reciclagem de eletrónicos um processo particularmente difícil?
+    answerOptions:
+      - label: 0
+        answerStr: São grandes e pesados
+      - label: 1
+        answerStr: Contêm componentes tóxicos e materiais variados
+      - label: 2
+        answerStr: São de difícil transporte
+      - label: 3
+        answerStr: Todas as anteriores
+    correctAnswer: 3
+
+  - question: Que tipo de plástico é mais difícil de reciclar devido à sua mistura de materiais?
+    answerOptions:
+      - label: 0
+        answerStr: PET
+      - label: 1
+        answerStr: PVC
+      - label: 2
+        answerStr: Plásticos multicamadas
+      - label: 3
+        answerStr: Nenhuma das anteriores
+    correctAnswer: 2
+
+  - question: Qual destes itens pode ser reciclado, mas apenas através de programas especializados e não num centro de reciclagem comum?
+    answerOptions:
+      - label: 0
+        answerStr: Pilhas e baterias
+      - label: 1
+        answerStr: Garrafas de plástico
+      - label: 2
+        answerStr: Papelão
+      - label: 3
+        answerStr: Latas de alumínio
+    correctAnswer: 0
+
+  - question: Qual é o destino mais comum de resíduos orgânicos em programas de reciclagem?
+    answerOptions:
+      - label: 0
+        answerStr: Compostagem
+      - label: 1
+        answerStr: Reciclagem mecânica
+      - label: 2
+        answerStr: Transformação em biocombustível
+      - label: 3
+        answerStr: Incineração
+    correctAnswer: 0
+
+  - question: Qual destes tipos de plástico é mais difícil de reciclar devido à sua composição?
+    answerOptions:
+      - label: 0
+        answerStr: PET (politereftalato de etileno)
+      - label: 1
+        answerStr: PVC (policloreto de vinilo)
+      - label: 2
+        answerStr: PEAD (polietileno de alta densidade)
+      - label: 3
+        answerStr: PP (polipropileno)
+    correctAnswer: 1
