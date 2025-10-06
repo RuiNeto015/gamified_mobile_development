@@ -11,7 +11,7 @@
   },
   "dependencies": {
     "@eva-design/eva": "^2.2.0",
-    "@fortawesome/fontawesome-svg-core": "^6.6.0",
+    "@fortawesome/fontawesome-svg-core": "^7.1.0",
     "@fortawesome/free-solid-svg-icons": "^6.6.0",
     "@fortawesome/react-native-fontawesome": "^0.3.2",
     "@react-native-community/hooks": "^3.0.0",
